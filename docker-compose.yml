@@ -11,7 +11,7 @@ services:
       - type: bind
         source: ./elasticsearch/config
         target: /usr/share/elasticsearch/config
-        readonly:
+        read_only: true
       - type: bind
         source: /mnt/elastic
         target: /usr/share/elasticsearch/data
@@ -34,12 +34,12 @@ services:
       - type: bind
         source: ./logstash/config
         target: /usr/share/logstash/config
-        readonly:
+        read_only: true
         
       - type: bind
         source: ./logstash/pipeline
         target: /usr/share/logstash/pipeline
-        readonly:
+        read_only: true
     ports:
       - "5000:5000"
       - "9600:9600"
@@ -59,7 +59,7 @@ services:
       - type: bind
         source: ./kibana/config
         target: /usr/share/kibana/config
-        readonly:
+        read_only: true
     ports:
       - "5601:5601"
     networks:
